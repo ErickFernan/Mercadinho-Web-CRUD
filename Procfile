@@ -1,1 +1,1 @@
-web: gunicorn django1.wsgi --log-file -
+web: gunicorn mercadinho.wsgi --log-file -
