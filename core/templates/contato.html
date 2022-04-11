@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <h1> CONTATO </h1>
+        {% bootstrap_messages %} <!-- responsável por enviar msgs(confirmação, erro etc...) -->
+
+        <form action="{% url 'contato' %}" method="post" class="form" autocomplete="off">
+            <!-- action: ao clicar enviar os dados para a url contato -->
+            <!-- mejotd: metodo html usado -->
+            <!-- class: no caso form que vem do css do bootstrap -->
+            <!-- autocomple: mostrar dados digitados anteriosmente (S|N) -->
+            {% csrf_token %} <!-- precisa estar dentro do formulario p/ funcionar, responsável por gerar o token que faz a validação -->
+            {% bootstrap_form form %} <!-- "bootstrap aplique o css nesse form" -->
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            {% endbuttons %}
+        </form>
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

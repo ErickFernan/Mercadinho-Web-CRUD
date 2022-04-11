@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Apresentaçã0</title>
+    {% bootstrap_css %}
+</head>
+<body>
+
+    <div class="container" align="center">
+        <h3 align="center">DETALHES</h3>
+        <div class="row align-items-start">
+          <div class="col">
+            Nome: {{ info_cliente.nome }}
+          </div>
+          <div class="col" align="center">
+            CPF  = {{ info_cliente.cpf }}
+          </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-start">
+          <div class="col" align="center">
+            Endereço: {{ info_cliente.endereco }}
+          </div>
+          <div class="col" align="center">
+            Telefone  = {{ info_cliente.telefone }}
+          </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-start">
+          <div class="col" align="center">
+            Cidade: {{ info_cliente.cidade }}
+          </div>
+          <div class="col" align="center">
+            CEP  = {{ info_cliente.cep }}
+          </div>
+        </div>
+        <div class="col" align="center">
+            Data  = {{ info_compras.data }}
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="container">
+
+        <table class="table table-dark">
+            <thead>
+                <tr align="center">
+
+                    <th scope="col" >Produto</th>
+                    <th scope="col" >Preço</th>
+                    <th scope="col" >Tipo</th>
+                    <th scope="col" >Fabricante</th>
+                    <th scope="col" >Quantidade</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in info_listaproduto %}
+                    <tr align="center">
+
+                        <td scope="row">{{v.produto.nome}}</td>
+                        <td scope="row">{{v.produto.preco}}</td>
+                        <td scope="row">{{v.produto.tipo.tipo}}</td>
+                        <td scope="row">{{v.produto.fabricante.nome}}</td>
+                        <td scope="row">{{v.quantidade}}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+>{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

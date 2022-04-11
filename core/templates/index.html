@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    {% bootstrap_css %}
+</head>
+<body>
+
+    <nav class="w-auto p-3 navbar navbar-expand-lg navbar-dark bg-dark " >
+  <a class="navbar-brand " href="#" >Menu Mercadinho:</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Adicionar
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'adicionar' %}">Produto</a>
+              <a class="dropdown-item" href="#">Compra</a>
+          </div>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'editar' %}" target="_blank">Editar</a>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'excluir' %}" target="_blank">Excluir</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mostrar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for tabela in tabelas %}
+                <a class="dropdown-item" href="{% url 'mostratabela' tabela %}" target="_blank">{{ tabela }}</a>
+            {% endfor %}
+        </div>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'resumo' %}" target="_blank">Detalhes de Compra</a>
+      </li>
+    </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link" href="{% url 'contato' %}" target="_blank">Contato</a>
+    </form>
+
+  </div>
+
+</nav>
+
+    <center>
+        <p></p>
+        <h1>MODELO</h1>
+        <img src="{% static 'image/modelagem.png' %}">
+    </center>
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
+

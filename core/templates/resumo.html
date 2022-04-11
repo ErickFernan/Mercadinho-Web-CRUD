@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumo de compra</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <h1> RESUMO </h1>
+        {% bootstrap_messages %}
+
+        <form action="{% url 'resumo' %}" method="post" class="form" autocomplete="on">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Executar</button>
+            {% endbuttons %}
+        </form>
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
